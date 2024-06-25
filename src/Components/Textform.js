@@ -16,6 +16,22 @@ export default function Textform(props) {
   const btnclick3 = () => {
     setext("");
   };
+  const space=()=>{
+    let newtext=text.split(/[ ]+/)
+    setext(newtext.join(" "))
+  }
+  const copy=()=>{
+    let copu=document.querySelector("#mybox")
+    copu.select()
+    navigator.clipboard.writeText(copu.value);
+  }
+  const upper=()=>{
+    const fish=text.split(" ")
+    for(let i=0;i<fish.length;i++){
+        fish[i]=fish[i].charAt(0).toUpperCase()+fish[i].slice(1)
+        }
+        setext(fish.join(" "))
+  }
   return (
     <>
       <h1>{props.heading}</h1>
@@ -26,7 +42,7 @@ export default function Textform(props) {
         ></label>
         <textarea
           className="form-control"
-          id="exampleFormControlTextarea1"
+          id="mybox"
           rows="8"
           value={text}
           onChange={handlechange}
@@ -36,11 +52,20 @@ export default function Textform(props) {
       <button className="btn btn-primary" onClick={btnclick1}>
         Convert to uppercase
       </button>
-      <button className="btn btn-primary mx-3" onClick={btnclick2}>
+      <button className="btn btn-primary mx-2" onClick={btnclick2}>
         Convert to lowercase
+      </button>
+      <button className="btn btn-primary mx-2" onClick={upper}>
+        Capitallize
       </button>
       <button className="btn btn-primary mx-2" onClick={btnclick3}>
         Clear Text
+      </button>
+      <button className="btn btn-primary mx-2" onClick={space}>
+        Remove Space
+      </button>
+      <button className="btn btn-primary mx-2" onClick={copy}>
+        Copy Text
       </button>
       <div className="container my-3">
         <h1>Details of your text</h1>
