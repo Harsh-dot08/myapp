@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 export default function Textform(props) {
   const [text, setext] = useState("Enter your text");
   const handlechange = (event) => {
@@ -38,6 +38,48 @@ export default function Textform(props) {
         setext(fish.join(" "))
         props.alert("First letter converted to uppercase","success")
   }
+  const slow=()=>{
+    if(text===""){
+        return "No Text Avilable kindly enter the text to get time"
+    }else{
+         return `a slow reader can read it in ${text.split(" ").length * 0.0083} minutes`
+    }
+  }
+  const fast=()=>{
+    if(text===""){
+    }else{
+        return `a fast reader can read it in ${text.split(" ").length * 0.0022} minutes`
+    }
+  }
+  const count=()=>{
+    if(text===""){
+        return 0;
+    }else{
+        return text.split(" ").length
+    }
+  }
+  const preview=()=>{
+    if(text===""){
+        return "Enter some text to Preview";
+    }else{
+        return text
+    }
+  }
+  const bg=()=>{
+    if(props.mode==="red"){
+        return "#a81414"
+    }else if(props.mode==="yellow"){
+        return "#f5b402"
+    }else if(props.mode==="dark"){
+        return "#000000"
+    }else if(props.mode==="blue"){
+        return "#080a4a"
+    }else if(props.mode==="green"){
+        return  "#0cc242"
+    }else{
+        return "#fcfcfc"
+    }
+  }
   return (
     <>
       <h1 className={`text-${props.mode==="light"?"dark":"light"}`}>{props.heading }</h1>
@@ -48,7 +90,7 @@ export default function Textform(props) {
         ></label>
         <textarea
           className={`form-control text-${props.mode==="light"?"dark":"light"}`}
-          style={{backgroundColor: props.mode==="dark"?"#080a4a":"#fcfcfc"}}
+          style={{backgroundColor: bg()}}
           id="mybox"
           rows="8"
           value={text}
@@ -77,15 +119,15 @@ export default function Textform(props) {
       <div className={`container my-3 text-${props.mode==="light"?"dark":"light"}`}>
         <h1>Details of your text</h1>
         <p>
-          {text.split(" ").length} words and {text.length} characters
+          {count()} words and {text.length} characters
         </p>
         <p>
-          a slow reader can read it in {text.split(" ").length * 0.0083} minutes
-          and a normal user can read it in {text.split(" ").length * 0.0022}{" "}
-          minutes
+          {slow()}
+          <br/>
+          {fast()}
         </p>
         <h2>Preview</h2>
-        <p>{text}</p>
+        <p>{preview()}</p>
       </div>
     </>
   );
