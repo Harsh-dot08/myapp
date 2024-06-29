@@ -6,6 +6,7 @@ export default function Textform(props) {
   };
   const clicked = () => {
     setext("");
+    //document.title="Text Utils is Good"
   };
   const btnclick1 = () => {
     setext(text.toUpperCase());
@@ -101,19 +102,19 @@ export default function Textform(props) {
       <button className="btn btn-primary" onClick={btnclick1}>
         Convert to uppercase
       </button>
-      <button className="btn btn-primary mx-2" onClick={btnclick2}>
+      <button className="btn btn-primary mx-2 my-2" onClick={btnclick2}>
         Convert to lowercase
       </button>
-      <button className="btn btn-primary mx-2" onClick={upper}>
+      <button className="btn btn-primary mx-2 my-2" onClick={upper}>
         Capitallize
       </button>
-      <button className="btn btn-primary mx-2" onClick={btnclick3}>
+      <button className="btn btn-primary mx-2 my-2" onClick={btnclick3}>
         Clear Text
       </button>
-      <button className="btn btn-primary mx-2" onClick={space}>
+      <button className="btn btn-primary mx-2 my-2" onClick={space}>
         Remove Space
       </button>
-      <button className="btn btn-primary mx-2" onClick={copy}>
+      <button className="btn btn-primary mx-2 my-2" onClick={copy}>
         Copy Text
       </button>
       <div className={`container my-3 text-${props.mode==="light"?"dark":"light"}`}>
@@ -126,8 +127,10 @@ export default function Textform(props) {
           <br/>
           {fast()}
         </p>
+        <div style={{ marginBottom: '15vh' }}>
         <h2>Preview</h2>
         <p>{preview()}</p>
+        </div>
       </div>
     </>
   );
