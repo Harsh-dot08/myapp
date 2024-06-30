@@ -1,5 +1,4 @@
 import React,{useState} from "react";
-import PropTypes from "prop-types";
 
 import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
@@ -12,11 +11,12 @@ export default function Navbar(props) {
     <>
       <nav className={`navbar navbar-expand-lg navbar-dark bg-dark`}>
         <div className="container-fluid">
-          <Link className="navbar-brand" to="/">
+          <a className="navbar-brand" href="#">
             {props.name}
-          </Link>
-          <Link className="navbar-brand" to="/">{props.home}</Link>
-          <Link className="navbar-brand" to="/about">{props.about}</Link>
+          </a>
+          <a className="navbar-brand" href="#">{props.home}</a>
+          {/*<Link className="navbar-brand" to="/about">{props.about}</Link>*/}
+          <a className="navbar-brand" href="#">{props.about}</a>
           {/*<form className="d-flex" role="search">
       <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
       <button className="btn btn-outline-success" type="submit">Search</button>
@@ -112,10 +112,9 @@ export default function Navbar(props) {
     </>
   );
 }
-Navbar.propTypes = {
+/*Navbar.propTypes = {
   name: PropTypes.string,
   /*isRequired to compoulsory a element*/
-};
 /*Navbar.defaultProps = {
     name:'Stranger'
   };*/

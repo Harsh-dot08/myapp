@@ -7,7 +7,7 @@ import { useState } from "react";
 import Alert from "./Components/Alert";
 import Footer from "./Components/footer";
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+//import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import About from "./Components/About";
 
 function App() {
@@ -51,7 +51,7 @@ function App() {
 
   return (
     <>
-      <Router>
+      {/*<Router>*/}
         <Navbar
           name="Textutils"
           home="Home"
@@ -67,16 +67,17 @@ function App() {
         />
         <Alert alert={alert} />
         <div className="container my-3">
-          <Routes>
+        <Textform heading="Enter Text to analyze" mode={mode} alert={show} />
+          {/*<Routes>
             <Route
               exact path="/"
               element={<Textform heading="Enter Text to analyze" mode={mode} alert={show} />}
-            />
-            <Route exact path="/about" element={<About />} />
-          </Routes>
+            />}
+            {/*<Route exact path="/about" element={<About />} />*/}
+          {/*</Routes>*/}
         </div>
         <Footer />
-      </Router>
+      {/*</Router>*/}
     </>
   );
 }
