@@ -29,6 +29,7 @@ export default function Textform(props) {
     let copu=document.querySelector("#mybox")
     copu.select()
     navigator.clipboard.writeText(copu.value);
+    document.getSelection().removeAllRanges()
     props.alert("Text Copied","success")
   }
   const upper=()=>{
